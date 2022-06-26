@@ -1,4 +1,4 @@
-import { useWallet, WalletStatus } from '@terra-dev/use-wallet'
+import { useWallet, WalletStatus } from '@terra-money/wallet-provider';
 
 export const ConnectWallet = () => {
   const {
@@ -8,7 +8,7 @@ export const ConnectWallet = () => {
     connect,
     install,
     disconnect,
-  } = useWallet()
+  } = useWallet();
 
   return (
     <div>
@@ -18,7 +18,7 @@ export const ConnectWallet = () => {
             <button
               key={`install-${connectType}`}
               onClick={() => install(connectType)}
-              type="button"
+              type='button'
             >
               Install {connectType}
             </button>
@@ -27,7 +27,7 @@ export const ConnectWallet = () => {
             <button
               key={`connect-${connectType}`}
               onClick={() => connect(connectType)}
-              type="button"
+              type='button'
             >
               Connect {connectType}
             </button>
@@ -35,10 +35,10 @@ export const ConnectWallet = () => {
         </>
       )}
       {status === WalletStatus.WALLET_CONNECTED && (
-        <button onClick={() => disconnect()} type="button">
+        <button onClick={() => disconnect()} type='button'>
           Disconnect
         </button>
       )}
     </div>
-  )
-}
+  );
+};
